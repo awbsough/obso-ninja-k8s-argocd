@@ -11,7 +11,7 @@ spec:
   project: default
   source:
     path: apps/
-    repoURL: https://github.com/awbsough/obso-ninja-k8s-argocd.git 
+    repoURL: https://github.com/arthurk/argocd-example-install.git
     targetRevision: HEAD
   syncPolicy:
     automated:
