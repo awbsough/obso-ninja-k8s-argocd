@@ -2,12 +2,10 @@ argo-cd:
   installCRDs: false
   global:
     image:
-      tag: v2.1.2
+      tag: latest
   dex:
     enabled: false
   server:
-    extraArgs:
-      - --insecure
     config:
       repositories: |
         - type: helm
