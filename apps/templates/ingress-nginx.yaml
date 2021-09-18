@@ -20,6 +20,7 @@ spec:
           publishService:
             enabled: true
     repoURL: https://kubernetes.github.io/ingress-nginx
+    targetRevision: HEAD
   syncPolicy:
     automated:
       prune: true
