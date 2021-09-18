@@ -11,7 +11,7 @@ spec:
     namespace: default
   project: default
   source:
-    path: apps/
+    path: apps
     chart: external-dns
     helm:
       valueFiles:
