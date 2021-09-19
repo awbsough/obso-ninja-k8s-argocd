@@ -9,4 +9,5 @@ spec:
   dnsNames:
     - ldap-obso-ninja
   issuerRef:
-    name: letsencrypt-prod    
+    name: letsencrypt-prod
+    kind: ClusterIssuer
