@@ -1,0 +1,12 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: ldap-obso-ninja-tls
+  namespace: sandbox
+spec:
+  # Secret names are always required.
+  secretName: ldap-obso-ninja-tls
+  dnsNames:
+    - ldap-obso-ninja
+  issuerRef:
+    name: letsencrypt-prod    
