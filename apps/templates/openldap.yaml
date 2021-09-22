@@ -18,7 +18,7 @@ spec:
       values: |
         existingSecret: ldap-admin-password
         customTLS:
-          enabled: true
+          enabled: false
           secret: ldap-obso-ninja-tls
         env:
           LDAP_ORGANISATION: "Obso Ninja"
