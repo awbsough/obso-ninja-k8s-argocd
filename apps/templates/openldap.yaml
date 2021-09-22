@@ -18,7 +18,7 @@ spec:
       values: |
         existingSecret: ldap-admin-password
         customTLS:
-          enabled: true
+          enabled: false
           secret: ldap-obso-ninja-tls
         env:
           LDAP_BASE_DN: "dc=ldap,dc=obso,dc=ninja"
