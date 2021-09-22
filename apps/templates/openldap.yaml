@@ -16,10 +16,30 @@ spec:
       values: |
         existingSecret: ldap-admin-password
         customTLS:
-            enabled: true
-            secret: ldap-obso-ninja-tls
-    repoURL: https://jp-gouin.github.io/helm-openldap/
-    targetRevision: 2.0.4
+          enabled: true
+          secret: ldap-obso-ninja-tls
+        env:
+          LDAP_ORGANISATION: "Obso Ninja"
+          LDAP_DOMAIN: "ldap.obso.ninja"
+          LDAP_BACKEND: "hdb"
+          LDAP_TLS: "true"
+          LDAP_TLS_ENFORCE: "false"
+          LDAP_REMOVE_CONFIG_AFTER_SETUP: "true"
+          LDAP_READONLY_USER: "true"
+          LDAP_READONLY_USER_USERNAME: readonly
+          LDAP_READONLY_USER_PASSWORD: password
+        customLdifFiles:
+          initial-ous.ldif: |-
+            dn: ou=People,dc=ldap,dc=obso,dc=ninja
+            objectClass: organizationalUnit
+            ou: People
+
+            dn: ou=Group,dc=ldap,dc=obso,dc=ninja
+            objectClass: organizationalUnit
+            ou: Group  
+                    
+      repoURL: https://jp-gouin.github.io/helm-openldap/
+      targetRevision: 2.0.4
   syncPolicy:
     automated:
       prune: true
