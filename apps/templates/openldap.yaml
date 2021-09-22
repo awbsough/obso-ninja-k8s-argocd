@@ -21,6 +21,7 @@ spec:
           enabled: true
           secret: ldap-obso-ninja-tls
         env:
+          CONTAINER_LOG_LEVEL: 1
           LDAP_ORGANISATION: "Obso Ninja"
           LDAP_DOMAIN: "ldap.obso.ninja"
           HOSTNAME: "ldap.obso.ninja"
