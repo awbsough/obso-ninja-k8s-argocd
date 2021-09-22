@@ -27,7 +27,7 @@ spec:
           LDAP_ORGANISATION: "Obso Ninja"
           LDAP_DOMAIN: "ldap.obso.ninja"
           HOSTNAME: "ldap.obso.ninja"
-          LDAP_BACKEND: "hdb"
+          LDAP_BACKEND: "mdb"
           LDAP_TLS: "true"
           LDAP_TLS_ENFORCE: "false"
           LDAP_REMOVE_CONFIG_AFTER_SETUP: "true"
