@@ -1,51 +1,51 @@
-# apiVersion: argoproj.io/v1alpha1
-# kind: Application
-# metadata:
-#   name: openldap
-#   namespace: default
-#   finalizers:
-#   - resources-finalizer.argocd.argoproj.io
-# spec:
-#   destination:
-#     server: https://kubernetes.default.svc
-#     namespace: default
-#   project: default
-#   source:
-#     repoURL: https://jp-gouin.github.io/helm-openldap/
-#     targetRevision: 2.0.4
-#     chart: openldap
-#     helm:
-#       values: |
-#         existingSecret: ldap-admin-password
-#         customTLS:
-#           enabled: false
-#           secret: ldap-obso-ninja-tls
-#         env:
-#           LDAP_BASE_DN: "dc=ldap,dc=obso,dc=ninja"
-#           LDAP_LOG_LEVEL: "256"
-#           CONTAINER_LOG_LEVEL: "4"
-#           LDAP_ORGANISATION: "Obso Ninja"
-#           LDAP_DOMAIN: "ldap.obso.ninja"
-#           HOSTNAME: "ldap.obso.ninja"
-#           LDAP_BACKEND: "mdb"
-#           LDAP_TLS: "true"
-#           LDAP_TLS_ENFORCE: "false"
-#           LDAP_REMOVE_CONFIG_AFTER_SETUP: "true"
-#           LDAP_READONLY_USER: "true"
-#           LDAP_READONLY_USER_USERNAME: readonly
-#           LDAP_READONLY_USER_PASSWORD: password
-#         customLdifFiles:
-#           initial-ous.ldif: |-
-#             dn: ou=People,dc=ldap,dc=obso,dc=ninja
-#             objectClass: organizationalUnit
-#             ou: People
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: openldap
+  namespace: default
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+  project: default
+  source:
+    repoURL: https://jp-gouin.github.io/helm-openldap/
+    targetRevision: 2.0.4
+    chart: openldap
+    helm:
+      values: |
+        existingSecret: ldap-admin-password
+        customTLS:
+          enabled: false
+          secret: ldap-obso-ninja-tls
+        env:
+          LDAP_BASE_DN: "dc=ldap,dc=obso,dc=ninja"
+          LDAP_LOG_LEVEL: "256"
+          CONTAINER_LOG_LEVEL: "4"
+          LDAP_ORGANISATION: "Obso Ninja"
+          LDAP_DOMAIN: "ldap.obso.ninja"
+          HOSTNAME: "ldap.obso.ninja"
+          LDAP_BACKEND: "mdb"
+          LDAP_TLS: "true"
+          LDAP_TLS_ENFORCE: "false"
+          LDAP_REMOVE_CONFIG_AFTER_SETUP: "true"
+          LDAP_READONLY_USER: "true"
+          LDAP_READONLY_USER_USERNAME: readonly
+          LDAP_READONLY_USER_PASSWORD: password
+        customLdifFiles:
+          initial-ous.ldif: |-
+            dn: ou=People,dc=ldap,dc=obso,dc=ninja
+            objectClass: organizationalUnit
+            ou: People
 
-#             dn: ou=Group,dc=ldap,dc=obso,dc=ninja
-#             objectClass: organizationalUnit
-#             ou: Group  
+            dn: ou=Group,dc=ldap,dc=obso,dc=ninja
+            objectClass: organizationalUnit
+            ou: Group  
                     
 
-#   syncPolicy:
-#     automated:
-#       prune: true
-#       selfHeal: true
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
