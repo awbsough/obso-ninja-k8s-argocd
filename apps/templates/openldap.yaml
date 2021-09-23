@@ -15,9 +15,9 @@ spec:
     targetRevision: 2.0.4
     chart: openldap
     helm:
-      values: |
-        persistence:
-          enabled: false     
+      parameters:
+      - name: "persistence.enabled"
+        value: false 
   syncPolicy:
     automated:
       prune: true
