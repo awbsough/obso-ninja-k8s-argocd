@@ -18,6 +18,10 @@ spec:
       parameters:
       - name: "existingSecret"
         value: ldap-admin-password
+      - name: customTLS.enabled
+        value: true
+      - name: customTLS.secret
+        value: ldap-obso-ninja-tls
       # values: |
       #   existingSecret: ldap-admin-password
       #   customTLS:
