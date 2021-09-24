@@ -21,7 +21,9 @@ spec:
       - name: customTLS.enabled
         value: "true"
       - name: customTLS.secret
-        value: ldap-obso-ninja-tls
+        value: "ldap-obso-ninja-tls"
+      - name: logLevel
+        value: "debug"
       # values: |
       #   existingSecret: ldap-admin-password
       #   customTLS:
