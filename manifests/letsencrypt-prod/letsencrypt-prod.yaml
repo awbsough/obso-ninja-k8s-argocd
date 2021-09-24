@@ -20,7 +20,4 @@ spec:
           tokenSecretRef:
             name: digitalocean-api-token
             key: digitalocean-api-token    
-    - http01:
-        ingress:
-          class: nginx
 
