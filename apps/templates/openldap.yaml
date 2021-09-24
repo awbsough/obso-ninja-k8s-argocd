@@ -14,10 +14,10 @@ spec:
     repoURL: https://jp-gouin.github.io/helm-openldap/
     targetRevision: 2.0.4
     chart: openldap
-    helm:
-      parameters:
-      - name: "persistence.enabled"
-        value: "false" 
+    # helm:
+    #   parameters:
+    #   - name: "persistence.enabled"
+    #     value: "false" 
   syncPolicy:
     automated:
       prune: true
