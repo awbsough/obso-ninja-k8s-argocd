@@ -4,10 +4,9 @@ metadata:
   name: ldap-obso-ninja-tls
 spec:
   # Secret names are always required.
-  secretName: ldap-obso-ninja-tls-new
+  secretName: ldap-obso-ninja-tls
   dnsNames:
-    - obso.ninja
-    - sso.ldap.obso.ninja
+    - ldap.obso.ninja
   issuerRef:
     name: letsencrypt-prod
     kind: ClusterIssuer
