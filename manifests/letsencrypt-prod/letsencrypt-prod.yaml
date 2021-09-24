@@ -15,6 +15,12 @@ spec:
       name: letsencrypt-prod
     # Enable the HTTP-01 challenge provider
     solvers:
+    - dns01:
+        digitalocean:
+          tokenSecretRef:
+            name: digitalocean-api-token
+            key: digitalocean-api-token    
     - http01:
         ingress:
           class: nginx
+
