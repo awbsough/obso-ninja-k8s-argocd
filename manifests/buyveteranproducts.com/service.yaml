@@ -1,0 +1,19 @@
+# Source: piwigo/templates/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: buyveteranproducts
+  labels:
+    app.kubernetes.io/name: buyveteranproducts
+    app.kubernetes.io/instance: buyveteranproducts
+    app.kubernetes.io/version: "1.16.0"
+spec:
+  type: ClusterIP
+  ports:
+    - port: 80
+      targetPort: http
+      protocol: TCP
+      name: http
+  selector:
+    app.kubernetes.io/name: buyveteranproducts
+    app.kubernetes.io/instance: buyveteranproducts
