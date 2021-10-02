@@ -1,10 +1,10 @@
 apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
-  name: buyveteranproducts.com
+  name: buyveteranproducts
   labels:
-    app.kubernetes.io/name: buyveteranproducts.com
-    app.kubernetes.io/instance: buyveteranproducts.com
+    app.kubernetes.io/name: buyveteranproducts
+    app.kubernetes.io/instance: buyveteranproducts
     app.kubernetes.io/version: "1.16.0"
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-prod
@@ -14,12 +14,12 @@ spec:
   tls:
     - hosts:
         - "obso.ninja"
-      secretName: buyveteranproducts.com-tls
+      secretName: buyveteranproducts-tls
   rules:
     - host: "obso.ninja"
       http:
         paths:
           - path: /
             backend:
-              serviceName: buyveteranproducts.com
+              serviceName: buyveteranproducts
               servicePort: 80

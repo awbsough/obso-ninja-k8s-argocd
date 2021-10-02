@@ -1,28 +1,28 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: buyveteranproducts.com
+  name: buyveteranproducts
   labels:
-    app.kubernetes.io/name: buyveteranproducts.com
-    app.kubernetes.io/instance: buyveteranproducts.com
+    app.kubernetes.io/name: buyveteranproducts
+    app.kubernetes.io/instance: buyveteranproducts
     app.kubernetes.io/version: "1.16.0"
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app.kubernetes.io/name: buyveteranproducts.com
-      app.kubernetes.io/instance: buyveteranproducts.com
+      app.kubernetes.io/name: buyveteranproducts
+      app.kubernetes.io/instance: buyveteranproducts
   template:
     metadata:
       labels:
-        app.kubernetes.io/name: buyveteranproducts.com
-        app.kubernetes.io/instance: buyveteranproducts.com
+        app.kubernetes.io/name: buyveteranproducts
+        app.kubernetes.io/instance: buyveteranproducts
     spec:
-      serviceAccountName: buyveteranproducts.com
+      serviceAccountName: buyveteranproducts
       securityContext:
         {}
       containers:
-        - name: buyveteranproducts.com
+        - name: buyveteranproducts
           securityContext:
             {}
           image: "awbsough/buyvetproducts:latest"
