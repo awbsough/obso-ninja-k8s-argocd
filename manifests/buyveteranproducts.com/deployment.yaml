@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: buyveteranproducts.com
+  labels:
+    app.kubernetes.io/name: buyveteranproducts.com
+    app.kubernetes.io/instance: buyveteranproducts.com
+    app.kubernetes.io/version: "1.16.0"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: buyveteranproducts.com
+      app.kubernetes.io/instance: buyveteranproducts.com
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: buyveteranproducts.com
+        app.kubernetes.io/instance: buyveteranproducts.com
+    spec:
+      serviceAccountName: buyveteranproducts.com
+      securityContext:
+        {}
+      containers:
+        - name: buyveteranproducts.com
+          securityContext:
+            {}
+          image: "awbsough/buyvetproducts:latest"
+          imagePullPolicy: Always
+          ports:
+            - name: http
+              containerPort: 80
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 80
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 80
+          resources: {}
