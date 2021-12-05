@@ -19,7 +19,7 @@ spec:
       - name: "digitalocean.secretName"
         value: digitalocean-api-token
     repoURL: https://charts.bitnami.com/bitnami
-    targetRevision: 5.4.x
+    targetRevision: 5.5.x
   syncPolicy:
     automated:
       prune: true
