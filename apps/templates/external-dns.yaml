@@ -13,9 +13,6 @@ spec:
   source:
     chart: external-dns
     helm:
-      arguments:
-      - --digitalocean-api-page-size
-      - 200
       parameters:
       - name: "provider"
         value: digitalocean
