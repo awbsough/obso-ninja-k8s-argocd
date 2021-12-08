@@ -16,7 +16,7 @@ spec:
         - "stage.patriotsweepstakes.com"
       secretName: patriotsweepstakes-tls
   rules:
-    - host: "patriotsweepstakes.com"
+    - host: "stage.patriotsweepstakes.com"
       http:
         paths:
           - path: /
