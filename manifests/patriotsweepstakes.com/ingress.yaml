@@ -13,7 +13,7 @@ metadata:
 spec:
   tls:
     - hosts:
-        - "patriotsweepstakes.com"
+        - "stage.patriotsweepstakes.com"
       secretName: patriotsweepstakes-tls
   rules:
     - host: "patriotsweepstakes.com"
