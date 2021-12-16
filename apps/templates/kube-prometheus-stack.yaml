@@ -14,6 +14,8 @@ spec:
     chart: kube-prometheus-stack
     repoURL: https://prometheus-community.github.io/helm-charts
     targetRevision: 15.x
+  helm:
+    valueFiles: values.yaml
   syncPolicy:
     automated:
       prune: true
