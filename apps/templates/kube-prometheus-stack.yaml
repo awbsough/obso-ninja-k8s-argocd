@@ -12,8 +12,9 @@ spec:
   project: default
   source:
     chart: kube-prometheus-stack
-    repoURL: https://prometheus-community.github.io/helm-charts
-    targetRevision: 15.x
+    repoURL: https://github.com/awbsough/obso-ninja-k8s-argocd.git 
+    targetRevision: HEAD
+    path: charts/kube-prometheus-stack
     helm:
       valueFiles: 
       - values.yaml
