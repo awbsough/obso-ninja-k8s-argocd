@@ -1,19 +1,19 @@
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: kube-prometheus-stack
-  namespace: monitoring
-spec:
-  destination:
-    server: https://kubernetes.default.svc
-    namespace: monitoring
-  project: default
-  source:
-    path: charts/kube-prometheus-stack
-    repoURL: https://github.com/awbsough/obso-ninja-k8s-argocd.git 
-    targetRevision: HEAD
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
-      allowEmpty: true
+# apiVersion: argoproj.io/v1alpha1
+# kind: Application
+# metadata:
+#   name: kube-prometheus-stack
+#   namespace: monitoring
+# spec:
+#   destination:
+#     server: https://kubernetes.default.svc
+#     namespace: monitoring
+#   project: default
+#   source:
+#     path: charts/kube-prometheus-stack
+#     repoURL: https://github.com/awbsough/obso-ninja-k8s-argocd.git 
+#     targetRevision: HEAD
+#   syncPolicy:
+#     automated:
+#       prune: true
+#       selfHeal: true
+#       allowEmpty: true
