@@ -11,10 +11,9 @@ spec:
     namespace: default
   project: default
   source:
-    chart: kube-prometheus-stack
-    repoURL: https://github.com/awbsough/obso-ninja-k8s-argocd.git 
     path: charts/kube-prometheus-stack
-    targetRevision: 15.x
+    repoURL: https://github.com/awbsough/obso-ninja-k8s-argocd.git 
+    targetRevision: HEAD
     helm:
       valueFiles: 
       - values.yaml
