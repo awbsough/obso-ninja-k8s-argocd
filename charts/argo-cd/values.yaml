@@ -35,3 +35,5 @@ argo-cd:
         - secretName: argocd-tls-certificate
           hosts:
             - argocd.obso.ninja
+
+      https: true
