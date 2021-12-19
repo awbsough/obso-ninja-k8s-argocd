@@ -29,12 +29,12 @@ argo-cd:
           - email
           - 'https://argocd.obso.ninja/claims/groups'
 
-      rbacConfig:
-        policy.csv: |
-          g, argo-admins, role:admin
+    rbacConfig:
+      policy.csv: |
+        g, argo-admins, role:admin
 
-        policy.default: role:readonly
-        scopes: "[https://argocd.obso.ninja/claims/groups, email]"
+      policy.default: role:readonly
+      scopes: "[https://argocd.obso.ninja/claims/groups, email]"
 
     ingress:
       enabled: true
