@@ -19,9 +19,7 @@ argo-cd:
         name: Auth0
         issuer: https://dev-b5cremok.us.auth0.com/
         clientID: C5BSIoPy0ir0IHfYLAx7LZvmqofXK5HS
-        clientSecret:
-          secretName: argocd-auth0-secret
-          key: clientSecret
+        clientSecret: $argocd-auth0-secret:clientSecret
         requestedIDTokenClaims:
           groups:
             essential: true
@@ -32,7 +30,8 @@ argo-cd:
           - 'https://argocd.obso.ninja/claims/groups'
 
       rbacConfig:
-        policy.csv: g, argo-admins, role:admin
+        policy.csv: |
+          g, argo-admins, role:admin
 
         policy.default: role:readonly
         scopes: "[https://argocd.obso.ninja/claims/groups, email]"
