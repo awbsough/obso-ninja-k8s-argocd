@@ -14,7 +14,29 @@ argo-cd:
         - type: helm
           name: argo-cd
           url: https://argoproj.github.io/argo-helm
- 
+
+      oidc.config:
+        name: Auth0
+        issuer: https://dev-b5cremok.us.auth0.com/
+        clientID: C5BSIoPy0ir0IHfYLAx7LZvmqofXK5HS
+        clientSecret:
+          secretName: argocd-auth0-secret
+          key: clientSecret
+          requestedIDTokenClaims:
+            groups:
+              essential: true
+          requestedScopes:
+            - openid
+            - profile
+            - email
+            - 'https://argocd.obso.ninja/claims/groups'
+
+      rbacConfig:
+        policy.csv: |
+          g, argo-admins, role:admin
+        scopes: '[https://argocd.obso.ninja/claims/groups, email]'
+
+        
     ingress:
       enabled: true
 
