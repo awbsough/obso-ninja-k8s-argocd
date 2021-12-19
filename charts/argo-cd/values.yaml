@@ -34,6 +34,8 @@ argo-cd:
       rbacConfig:
         policy.csv: |
           g, argo-admins, role:admin
+          
+        policy.default: role:readonly
         scopes: '[https://argocd.obso.ninja/claims/groups, email]'
 
         
