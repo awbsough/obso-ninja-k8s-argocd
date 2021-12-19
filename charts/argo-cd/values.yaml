@@ -22,14 +22,14 @@ argo-cd:
         clientSecret:
           secretName: argocd-auth0-secret
           key: clientSecret
-          requestedIDTokenClaims:
-            groups:
-              essential: true
-          requestedScopes:
-            - openid
-            - profile
-            - email
-            - 'https://argocd.obso.ninja/claims/groups'
+        requestedIDTokenClaims:
+          groups:
+            essential: true
+        requestedScopes:
+          - openid
+          - profile
+          - email
+          - 'https://argocd.obso.ninja/claims/groups'
 
       rbacConfig:
         policy.csv: |
