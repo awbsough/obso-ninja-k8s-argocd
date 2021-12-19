@@ -14,3 +14,19 @@ argo-cd:
         - type: helm
           name: argo-cd
           url: https://argoproj.github.io/argo-helm
+    
+    ingress:
+      enabled: true
+
+      hosts:
+        - argocd.obso.ninja
+      
+      paths:
+        - /
+      
+      pathType: Prefix
+
+      tls:
+        secretName: argocd-tls-certificate
+        hosts:
+          - argocd.obso.ninja
