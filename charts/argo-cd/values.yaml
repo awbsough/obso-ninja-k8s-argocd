@@ -34,15 +34,14 @@ argo-cd:
       rbacConfig:
         policy.csv: |
           g, argo-admins, role:admin
-          
-        policy.default: role:readonly
-        scopes: '[https://argocd.obso.ninja/claims/groups, email]'
 
-        
+        policy.default: role:readonly
+        scopes: "[https://argocd.obso.ninja/claims/groups, email]"
+
     ingress:
       enabled: true
 
-      annotations: 
+      annotations:
         kubernetes.io/ingress.class: nginx
         kubernetes.io/tls-acme: "true"
         cert-manager.io/cluster-issuer: letsencrypt-prod
@@ -50,10 +49,10 @@ argo-cd:
 
       hosts:
         - argocd.obso.ninja
-      
+
       paths:
         - /
-      
+
       pathType: Prefix
 
       tls:
