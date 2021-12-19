@@ -15,7 +15,7 @@ argo-cd:
           name: argo-cd
           url: https://argoproj.github.io/argo-helm
 
-      oidc.config:
+      oidc.config: |
         name: Auth0
         issuer: https://dev-b5cremok.us.auth0.com/
         clientID: C5BSIoPy0ir0IHfYLAx7LZvmqofXK5HS
