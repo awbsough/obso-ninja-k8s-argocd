@@ -22,6 +22,7 @@ argo-cd:
         kubernetes.io/ingress.class: nginx
         kubernetes.io/tls-acme: "true"
         cert-manager.io/cluster-issuer: letsencrypt-prod
+        nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
 
       hosts:
         - argocd.obso.ninja
