@@ -21,7 +21,7 @@ argo-cd:
         name: Auth0
         issuer: https://dev-b5cremok.us.auth0.com/
         clientID: C5BSIoPy0ir0IHfYLAx7LZvmqofXK5HS
-        clientSecret: $argocd-auth0-secret:clientSecret
+        clientSecret: argocd-auth0-secret:clientSecret
         requestedIDTokenClaims:
           groups:
             essential: true
