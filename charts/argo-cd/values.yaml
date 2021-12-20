@@ -6,6 +6,7 @@ argo-cd:
   dex:
     enabled: false
   server:
+    logLevel: debug
     config:
       url: https://argocd.obso.ninja
       repositories: |
