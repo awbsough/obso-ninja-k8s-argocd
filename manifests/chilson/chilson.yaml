@@ -1,0 +1,21 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: chilson
+spec:
+  jobTemplate:
+    metadata:
+      name: chilson
+    spec:
+      template:
+        metadata:
+        spec:
+          containers:
+          - image: ghcr.io/awbsough/chilson-autoregister:main
+            name: chilson
+            imagePullPolicy: Always
+          imagePullSecrets:
+            - name: github-secret
+          restartPolicy: OnFailure
+  schedule: 1 18 * * *
+status: {}
