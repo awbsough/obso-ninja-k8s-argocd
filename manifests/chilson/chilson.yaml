@@ -11,11 +11,10 @@ spec:
         metadata:
         spec:
           containers:
-          - image: ghcr.io/awbsough/chilson-autoregister:main
-            name: chilson
-            imagePullPolicy: Always
+            - image: ghcr.io/awbsough/chilson-autoregister:main
+              name: chilson
+              imagePullPolicy: Always
           imagePullSecrets:
             - name: github-secret
           restartPolicy: OnFailure
   schedule: 1 18 * * *
-status: {}
