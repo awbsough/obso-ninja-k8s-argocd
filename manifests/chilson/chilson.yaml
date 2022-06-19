@@ -14,6 +14,17 @@ spec:
             - image: ghcr.io/awbsough/chilson-autoregister:main
               name: chilson
               imagePullPolicy: Always
+              env:
+                - name: USERNAME
+                  valueFrom:
+                    secretKeyRef:
+                      name: chilson-username
+                      key: username
+                - name: PASSWORD
+                  valueFrom:
+                    secretKeyRef:
+                      name: chilson-password
+                      key: password
           imagePullSecrets:
             - name: github-secret
           restartPolicy: OnFailure
