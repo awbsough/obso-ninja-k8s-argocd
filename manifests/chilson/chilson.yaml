@@ -26,7 +26,7 @@ spec:
                       name: chilson-password
                       key: password
           imagePullSecrets:
-            - name: github-secret
+            - name: githubsecret
           restartPolicy: OnFailure
   schedule: 1 18 * * *
   #schedule: "*/1 * * * *"
