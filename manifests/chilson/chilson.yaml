@@ -29,4 +29,3 @@ spec:
             - name: githubsecret
           restartPolicy: OnFailure
   schedule: 1 18 * * *
-  #schedule: "*/1 * * * *"
