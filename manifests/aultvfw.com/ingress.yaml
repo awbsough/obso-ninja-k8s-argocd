@@ -1,0 +1,27 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: aultvfw
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    kubernetes.io/ingress.class: nginx
+    kubernetes.io/tls-acme: "true"
+spec:
+  tls:
+  - hosts:
+      - www.aultvfw.com
+      - aultvfw.com
+      - aultvfw.obso.ninja
+    secretName: aultvfw-tls
+  rules:
+  - host: "*.aultvfw.com"
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: aultvfw
+            port:
+              number: 80
+
