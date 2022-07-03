@@ -24,4 +24,13 @@ spec:
             name: aultvfw
             port:
               number: 80
-
+  - host: "aultvfw.obso.ninja"
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: aultvfw
+            port:
+              number: 80
