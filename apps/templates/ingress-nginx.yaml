@@ -19,6 +19,8 @@ spec:
         controller:
           publishService:
             enabled: true
+        prometheus:
+          create: true
     repoURL: https://kubernetes.github.io/ingress-nginx
     targetRevision: 4.1.x
   syncPolicy:
