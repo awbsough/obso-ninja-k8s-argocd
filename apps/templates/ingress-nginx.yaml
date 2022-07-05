@@ -26,6 +26,8 @@ spec:
               annotations:
                 prometheus.io/port: "10254"
                 prometheus.io/scrape: "true"
+            serviceMonitor:
+              enabled: true
     repoURL: https://kubernetes.github.io/ingress-nginx
     targetRevision: 4.1.x
   syncPolicy:
