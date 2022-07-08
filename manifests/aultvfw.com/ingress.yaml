@@ -14,7 +14,7 @@ spec:
       - aultvfw.obso.ninja
     secretName: aultvfw-tls
   rules:
-  - host: "*.aultvfw.com"
+  - host: aultvfw.com
     http:
       paths:
       - path: /
@@ -24,13 +24,4 @@ spec:
             name: aultvfw
             port:
               number: 80
-  - host: "aultvfw.obso.ninja"
-    http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: aultvfw
-            port:
-              number: 80
+
