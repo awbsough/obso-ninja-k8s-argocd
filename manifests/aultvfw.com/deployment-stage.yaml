@@ -1,27 +1,27 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: aultvfw
+  name: aultvfw-stage
   labels:
-    app.kubernetes.io/name: aultvfw
-    app.kubernetes.io/instance: aultvfw
+    app.kubernetes.io/name: aultvfw-stage
+    app.kubernetes.io/instance: aultvfw-stage
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app.kubernetes.io/name: aultvfw
-      app.kubernetes.io/instance: aultvfw
+      app.kubernetes.io/name: aultvfw-stage
+      app.kubernetes.io/instance: aultvfw-stage
   template:
     metadata:
       labels:
-        app.kubernetes.io/name: aultvfw
-        app.kubernetes.io/instance: aultvfw
+        app.kubernetes.io/name: aultvfw-stage
+        app.kubernetes.io/instance: aultvfw-stage
     spec:
-      serviceAccountName: aultvfw
+      serviceAccountName: aultvfw-stage
       securityContext:
         {}
       containers:
-        - name: aultvfw
+        - name: aultvfw-stage
           securityContext:
             {}
           image: "ghcr.io/awbsough/aultvfw.com:main"

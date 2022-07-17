@@ -11,7 +11,7 @@ spec:
   - hosts:
       - www.aultvfw.com
       - aultvfw.com
-      - aultvfw.obso.ninja
+      - stage.aultvfw.com
     secretName: aultvfw-tls
   rules:
   - host: aultvfw.com
@@ -32,5 +32,15 @@ spec:
         backend:
           service:
             name: aultvfw
+            port:
+              number: 80
+  - host: stage.aultvfw.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: aultvfw-stage
             port:
               number: 80
