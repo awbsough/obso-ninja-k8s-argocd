@@ -24,7 +24,7 @@ spec:
         - name: aultvfw-stage
           securityContext:
             {}
-          image: "ghcr.io/awbsough/aultvfw.com:main"
+          image: "ghcr.io/awbsough/aultvfw.com:stage"
           imagePullPolicy: Always
           ports:
             - name: http
