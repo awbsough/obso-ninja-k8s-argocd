@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: aultvfw
+  name: lauraforloveland
   labels:
     app.kubernetes.io/name: lauraforloveland
     app.kubernetes.io/instance: lauraforloveland
