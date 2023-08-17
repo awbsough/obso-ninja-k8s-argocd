@@ -17,14 +17,14 @@ spec:
         app.kubernetes.io/name: lauraforloveland-stage
         app.kubernetes.io/instance: lauraforloveland-stage
     spec:
-      serviceAccountName: aultvfw
+      serviceAccountName: lauraforloveland
       securityContext:
         {}
       containers:
         - name: lauraforloveland-stage
           securityContext:
             {}
-          image: "ghcr.io/awbsough/aultvfw.com:stage"
+          image: "ghcr.io/awbsough/lauraforloveland.com:stage"
           imagePullPolicy: Always
           ports:
             - name: http
