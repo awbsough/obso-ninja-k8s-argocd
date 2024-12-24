@@ -33,6 +33,12 @@ spec:
             secretKeyRef:
               name: fam-images-secrets
               key: secret-key
+        - name: CORS_ORIGINS
+          value: "https://lightfamily.photos,https://www.lightfamily.photos"
+        - name: CORS_ALLOW_CREDENTIALS
+          value: "true"
+        - name: BASE_URL
+          value: "https://lightfamily.photos"
         volumeMounts:
         - name: photo-storage
           mountPath: /app/uploads
