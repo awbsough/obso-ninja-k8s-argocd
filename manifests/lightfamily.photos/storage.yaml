@@ -28,6 +28,16 @@ spec:
         app: fam-images
         component: database
     spec:
+      initContainers:
+      - name: init-chmod-data
+        image: busybox
+        command:
+        - sh
+        - -c
+        - mkdir -p /var/lib/postgresql/data/pgdata && chown -R 999:999 /var/lib/postgresql/data/pgdata
+        volumeMounts:
+        - name: postgres-storage
+          mountPath: /var/lib/postgresql/data
       containers:
       - name: postgres
         image: postgres:15-alpine
@@ -49,6 +59,8 @@ spec:
             secretKeyRef:
               name: fam-images-secrets
               key: postgres-password
+        - name: PGDATA
+          value: /var/lib/postgresql/data/pgdata
         volumeMounts:
         - name: postgres-storage
           mountPath: /var/lib/postgresql/data
