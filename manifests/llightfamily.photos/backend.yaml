@@ -1,0 +1,71 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+  labels:
+    app: fam-images
+    component: backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fam-images
+      component: backend
+  template:
+    metadata:
+      labels:
+        app: fam-images
+        component: backend
+    spec:
+      containers:
+      - name: backend
+        image: docker.io/awbsough/backend:latest
+        ports:
+        - containerPort: 8000
+        env:
+        - name: DATABASE_URL
+          valueFrom:
+            secretKeyRef:
+              name: fam-images-secrets
+              key: database-url
+        - name: SECRET_KEY
+          valueFrom:
+            secretKeyRef:
+              name: fam-images-secrets
+              key: secret-key
+        volumeMounts:
+        - name: photo-storage
+          mountPath: /app/uploads
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 8000
+          initialDelaySeconds: 30
+          periodSeconds: 30
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 8000
+          initialDelaySeconds: 5
+          periodSeconds: 10
+      volumes:
+      - name: photo-storage
+        persistentVolumeClaim:
+          claimName: photo-storage-pvc
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend
+  labels:
+    app: fam-images
+    component: backend
+spec:
+  ports:
+  - port: 8000
+    targetPort: 8000
+    protocol: TCP
+    name: http
+  selector:
+    app: fam-images
+    component: backend 
