@@ -18,6 +18,8 @@ spec:
         value: digitalocean
       - name: "digitalocean.secretName"
         value: digitalocean-api-token
+      - name: interval
+        value: 10m
     repoURL: https://charts.bitnami.com/bitnami
     targetRevision: 6.28.3
   syncPolicy:
