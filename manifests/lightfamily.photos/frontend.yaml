@@ -24,7 +24,7 @@ spec:
         - containerPort: 80
         env:
         - name: REACT_APP_API_URL
-          value: "http://backend:8000"
+          value: "https://lightfamily.photos/api"
         livenessProbe:
           httpGet:
             path: /
