@@ -20,8 +20,6 @@ spec:
         value: digitalocean-api-token
       - name: interval
         value: 10m
-      - name: replicaCount
-        value: 0
     repoURL: https://charts.bitnami.com/bitnami
     targetRevision: 6.28.3
   syncPolicy:
