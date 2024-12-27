@@ -13,5 +13,4 @@ spec:
           digitalocean:
             tokenSecretRef:
               name: digitalocean-api-token
-              key: digitalocean_api_token
-            tokenSecretKey: digitalocean_api_token 
+              key: digitalocean_api_token 

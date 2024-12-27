@@ -18,14 +18,12 @@ spec:
         extraArgs:
           - --dns01-recursive-nameservers=8.8.8.8:53,1.1.1.1:53
         controller:
-          extraVolumeMounts:
-            - name: digitalocean-token
-              mountPath: /etc/digitalocean
-              readOnly: true
-          extraVolumes:
-            - name: digitalocean-token
-              secret:
-                secretName: digitalocean-api-token
+          extraEnv:
+            - name: DIGITALOCEAN_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: digitalocean-api-token
+                  key: digitalocean_api_token
     repoURL: https://charts.jetstack.io
     targetRevision: v1.16.2
   syncPolicy:
