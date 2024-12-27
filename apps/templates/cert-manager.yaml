@@ -15,14 +15,39 @@ spec:
     helm:
       values:
         installCRDs: true
-        solvers:
-          - dns01:
-              digitalocean:
-                tokenSecretRef:
-                  name: digitalocean-api-token
-                  key: digitalocean_api_token
+        extraArgs:
+          - --dns01-recursive-nameservers=8.8.8.8:53,1.1.1.1:53
+        extraVolumeMounts:
+          - name: digitalocean-token
+            mountPath: /etc/digitalocean
+            readOnly: true
+        extraVolumes:
+          - name: digitalocean-token
+            secret:
+              secretName: digitalocean-api-token
     repoURL: https://charts.jetstack.io
     targetRevision: v1.16.2
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: cert-manager-config
+  namespace: default
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+  project: default
+  source:
+    path: manifests/cert-manager
+    repoURL: https://github.com/lukelight/obso-ninja-k8s-argocd.git
+    targetRevision: main
   syncPolicy:
     automated:
       prune: true
