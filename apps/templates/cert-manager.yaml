@@ -17,15 +17,15 @@ spec:
         installCRDs: true
         extraArgs:
           - --dns01-recursive-nameservers=8.8.8.8:53,1.1.1.1:53
-        podTemplate:
-          volumes:
-            - name: digitalocean-token
-              secret:
-                secretName: digitalocean-api-token
-          volumeMounts:
+        controller:
+          extraVolumeMounts:
             - name: digitalocean-token
               mountPath: /etc/digitalocean
               readOnly: true
+          extraVolumes:
+            - name: digitalocean-token
+              secret:
+                secretName: digitalocean-api-token
     repoURL: https://charts.jetstack.io
     targetRevision: v1.16.2
   syncPolicy:
