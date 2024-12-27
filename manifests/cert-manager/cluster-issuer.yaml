@@ -4,14 +4,13 @@ metadata:
   name: letsencrypt-prod
 spec:
   acme:
-    email: luke@lightfamily.photos
     server: https://acme-v02.api.letsencrypt.org/directory
+    email: luke@lightfamily.photos
     privateKeySecretRef:
       name: letsencrypt-prod
     solvers:
-    - selector: {}
-      dns01:
-        digitalocean:
-          tokenSecretRef:
-            name: digitalocean-api-token
-            key: access-token 
+      - dns01:
+          digitalocean:
+            tokenSecretRef:
+              name: digitalocean-api-token
+              key: access-token 
