@@ -13,4 +13,5 @@ spec:
           digitalocean:
             tokenSecretRef:
               name: digitalocean-api-token
-              key: access-token 
+              key: access-token
+              namespace: default 
