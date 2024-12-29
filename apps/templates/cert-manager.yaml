@@ -17,22 +17,6 @@ spec:
     helm:
       values:
         installCRDs: true
-        extraArgs:
-          - --dns01-recursive-nameservers=8.8.8.8:53,1.1.1.1:53
-        extraEnv:
-          - name: DIGITALOCEAN_TOKEN
-            valueFrom:
-              secretKeyRef:
-                name: digitalocean-api-token
-                key: access-token
-        extraVolumeMounts:
-          - name: digitalocean-token
-            mountPath: /etc/digitalocean
-            readOnly: true
-        extraVolumes:
-          - name: digitalocean-token
-            secret:
-              secretName: digitalocean-api-token
   syncPolicy:
     automated:
       prune: true
