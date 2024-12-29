@@ -5,7 +5,7 @@ metadata:
 spec:
   acme:
     server: https://acme-v02.api.letsencrypt.org/directory
-    email: luke@lightfamily.photos
+    email: awbsough@protonmail.com
     privateKeySecretRef:
       name: letsencrypt-prod
     solvers:
