@@ -1341,12 +1341,14 @@ kube-state-metrics:
   rbac:
     create: true
   podSecurityPolicy:
-    enabled: true
+    enabled: false
 
 ## Deploy node exporter as a daemonset to all nodes
 ##
 nodeExporter:
   enabled: true
+  podSecurityPolicy:
+    enabled: false
 
   ## Use the value configured in prometheus-node-exporter.podLabels
   ##
