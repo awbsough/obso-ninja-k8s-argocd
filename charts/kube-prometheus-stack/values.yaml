@@ -95,7 +95,7 @@ additionalPrometheusRulesMap: {}
 global:
   rbac:
     create: true
-    pspEnabled: true
+    pspEnabled: false
     pspAnnotations: {}
       ## Specify pod annotations
       ## Ref: https://kubernetes.io/docs/concepts/policy/pod-security-policy/#apparmor
