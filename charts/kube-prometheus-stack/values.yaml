@@ -624,6 +624,8 @@ alertmanager:
 grafana:
   enabled: true
   namespaceOverride: ""
+  podSecurityPolicy:
+    enabled: false
 
   ## ForceDeployDatasources Create datasource configmap even if grafana deployment has been disabled
   ##
@@ -1392,6 +1394,8 @@ nodeExporter:
 ##
 prometheus-node-exporter:
   namespaceOverride: ""
+  podSecurityPolicy:
+    enabled: false
   podLabels:
     ## Add the 'node-exporter' label to be used by serviceMonitor to match standard common usage in rules and grafana dashboards
     ##
@@ -1406,6 +1410,8 @@ prometheus-node-exporter:
 ##
 prometheusOperator:
   enabled: true
+  podSecurityPolicy:
+    enabled: false
 
   ## Prometheus-Operator v0.39.0 and later support TLS natively.
   ##
